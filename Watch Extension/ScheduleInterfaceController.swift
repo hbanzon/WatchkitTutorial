@@ -15,6 +15,7 @@ class ScheduleInterfaceController: WKInterfaceController {
     @IBOutlet var flightsTable: WKInterfaceTable!
     
     var flights = Flight.allFlights()
+    var selectedIndex = 0
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
@@ -27,9 +28,24 @@ class ScheduleInterfaceController: WKInterfaceController {
         }
     }
     
+    override func didAppear() {
+        super.didAppear()
+        
+        // check to see if the selected flight is checked-in, and if so try to cast the row controller at the corresponding
+        // index in the table to an instance of FlightRowController
+        if flights[selectedIndex].checkedIn, let controller = flightsTable.rowControllerAtIndex(selectedIndex) as? FlightRowController {
+            // use the animation api to execute the given closure over a duration of 0.35 seconds
+            animateWithDuration(0.35, animations: {() -> Void in
+                controller.updateForCheckIn()
+            })
+        }
+    }
+    
     override func table(table: WKInterfaceTable, didSelectRowAtIndex rowIndex: Int) {
         let flight = flights[rowIndex]
-        presentControllerWithName("Flight", context: flight)
+        let controllers = ["Flight", "CheckIn"]
+        selectedIndex = rowIndex
+        presentControllerWithNames(controllers, contexts: [flight,flight])
     }
     
 }
