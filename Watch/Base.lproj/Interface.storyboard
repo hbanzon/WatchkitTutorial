@@ -113,6 +113,36 @@
             </objects>
             <point key="canvasLocation" x="118" y="918"/>
         </scene>
+        <!--BoardingPass-->
+        <scene sceneID="ViH-i3-88h">
+            <objects>
+                <controller identifier="BoardingPass" id="d7a-IP-iab" customClass="BoardingPassInterfaceController" customModule="Watch_Extension">
+                    <items>
+                        <group height="30" alignment="center" id="Zol-fn-2oI">
+                            <items>
+                                <label alignment="left" verticalAlignment="center" text="MAN" id="SCh-Nc-3TO">
+                                    <fontDescription key="font" type="system" weight="semibold" pointSize="20"/>
+                                </label>
+                                <imageView width="24" height="20" alignment="left" verticalAlignment="center" image="Plane" id="p3T-iJ-N4l">
+                                    <color key="tintColor" red="0.98039215690000003" green="0.066666666669999999" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </imageView>
+                                <label alignment="left" verticalAlignment="center" text="SFO" id="044-Lz-dic">
+                                    <fontDescription key="font" type="system" weight="semibold" pointSize="20"/>
+                                </label>
+                            </items>
+                        </group>
+                        <imageView width="66" height="66" alignment="center" verticalAlignment="center" image="Activity" animationDuration="1" id="zQ7-8u-hys"/>
+                    </items>
+                    <edgeInsets key="margins" left="1" right="1" top="6" bottom="0.0"/>
+                    <connections>
+                        <outlet property="boardingPassImage" destination="zQ7-8u-hys" id="qi9-mU-Mwa"/>
+                        <outlet property="destinationLabel" destination="044-Lz-dic" id="0Bb-cG-Foo"/>
+                        <outlet property="originLabel" destination="SCh-Nc-3TO" id="epl-aT-W4S"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="381" y="917"/>
+        </scene>
         <!--Flight-->
         <scene sceneID="Vbt-mM-kgx">
             <objects>
